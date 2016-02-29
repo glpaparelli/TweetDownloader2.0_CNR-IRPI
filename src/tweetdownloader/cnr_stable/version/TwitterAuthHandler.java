@@ -27,7 +27,7 @@ public class TwitterAuthHandler {
      * Is used to get permission for get the tweets.
      * @return
      */
-    public static OAuth2Token getOAuth2Token() {
+    public OAuth2Token getOAuth2Token() {
         OAuth2Token token = null;
         ConfigurationBuilder cb;
         cb = new ConfigurationBuilder();
@@ -47,7 +47,7 @@ public class TwitterAuthHandler {
      * This method give you the auth to work with Twitter API
      * @return istance of Twitter
      */
-    public static Twitter getTwitter() {
+    public Twitter getTwitter() {
         OAuth2Token token;
         token = getOAuth2Token();
         ConfigurationBuilder cb = new ConfigurationBuilder();

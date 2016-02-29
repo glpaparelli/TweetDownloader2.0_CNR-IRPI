@@ -9,6 +9,7 @@ import twitter4j.*;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.logging.Level;
+
 /**
  *
  * @author Giulio
@@ -20,20 +21,22 @@ public class TweetDownload {
     private String SEARCH_TERM;
     int totalTweets = 0;
     long maxID = -1;
-    static public TwitterAuthHandler getMyTwitterInstance;
-    public ArrayList<dataOfTweet> allMyTweets = new ArrayList<>();
-
-    public TweetDownload() {
+    Twitter twitter;
+    
+    /**
+     * 
+     * @param twitterIstance 
+     */
+    public TweetDownload(Twitter twitterIstance) {
+        twitter = twitterIstance;
     }
     
     /**
      * this method return an ArrayList of dataOfTweets
+     * @param allMyTweets
      * @return allMyTweet
      */
-    public ArrayList<dataOfTweet> downloadMyTweet() {
-        getMyTwitterInstance = new TwitterAuthHandler();
-
-        Twitter twitter = TwitterAuthHandler.getTwitter();
+    public ArrayList<dataOfTweet> downloadMyTweet(ArrayList<dataOfTweet> allMyTweets) { 
         {
             try {
                 Map<String, RateLimitStatus> rateLimitStatus = twitter.getRateLimitStatus("search");

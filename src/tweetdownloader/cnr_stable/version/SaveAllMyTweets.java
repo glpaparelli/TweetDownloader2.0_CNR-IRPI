@@ -17,7 +17,7 @@ import java.util.logging.Level;
  *
  * @author Giulio
  */
-public class SaveTweetStream {
+public class SaveAllMyTweets {
 
     /**
      * This method save the sanitaized tweet text on CSV File
@@ -30,7 +30,7 @@ public class SaveTweetStream {
         try{
             printWriterOutput = new PrintWriter("savedTweet.csv");
         } catch (FileNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SaveTweetStream.class.getName()).log(Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SaveAllMyTweets.class.getName()).log(Level.SEVERE, null, ex);
         }
         for(int i = 0; i < allMyTweet.size(); i++ ){
             printWriterOutput.println(allMyTweet.get(i).getTweetText() + ";");
